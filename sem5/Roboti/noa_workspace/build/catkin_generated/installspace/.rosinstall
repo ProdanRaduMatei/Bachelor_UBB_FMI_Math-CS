@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pi/noa_workspace/install/setup.sh

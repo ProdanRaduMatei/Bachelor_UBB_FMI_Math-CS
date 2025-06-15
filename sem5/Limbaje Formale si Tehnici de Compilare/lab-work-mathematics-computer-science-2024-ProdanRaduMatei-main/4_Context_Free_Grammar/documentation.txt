@@ -1,0 +1,10 @@
+Purpose: This file contains the context-free grammar used for the minilanguage, describing the syntactic structure of
+         the language in a format suitable for parser generation.
+Format:  Each non-terminal is defined using -> to separate the left-hand side (LHS) from the right-hand side (RHS).
+         Alternatives for a rule are separated by |.
+         Terminals (keywords, operators, etc.) are enclosed in double quotes, e.g., "int".
+         Non-terminals are written in lowercase (e.g., program, statement, expression).
+         Recursive rules (e.g., statement_list) are used to represent repeated structures.
+Usage:   This grammar can be used with a parser generator like YACC, ANTLR, or Bison to implement the syntax analysis
+         phase of a compiler.
+         If you're implementing your own parser, follow the rules to construct the parse tree.

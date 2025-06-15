@@ -1,0 +1,8 @@
+prefix=/home/pi/noa_workspace/install
+
+Name: pkg_1
+Description: Description of pkg_1
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

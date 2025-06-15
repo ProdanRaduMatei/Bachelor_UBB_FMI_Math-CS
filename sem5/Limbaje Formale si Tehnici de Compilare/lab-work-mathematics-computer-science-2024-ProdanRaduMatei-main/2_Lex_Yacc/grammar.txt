@@ -1,0 +1,56 @@
+Minilanguage Specification
+Elements of the Programming Language
+1. Reserved Words:
+                                    int
+                                    float
+                                    struct
+                                    if
+                                    else
+                                    while
+                                    print
+                                    input
+
+2. Operators:
+                        1. Arithmetic: +, -, *, /
+                        2. Assignment: =
+                        3. Relational: ==, !=, <, >, <=, >=
+
+3. Separators:
+                            Parentheses: (, )
+                            Braces: {, }
+                            Semicolon: ;
+                            Comma: ,
+4. Identifiers:
+                        Must start with a letter (a-z, A-Z) or underscore (_)
+                        Followed by letters, digits (0-9), or underscores
+
+5. Constants:
+                    Integer constants: sequence of digits (e.g., 123)
+                    Floating-point constants: sequence of digits with a decimal point (e.g., 123.45)
+
+<program> ::= <statement_list>
+<statement_list> ::= <statement> | <statement> <statement_list>
+<statement> ::= <assignment_statement> | <input_statement> | <output_statement> | <conditional_statement> | <loop_statement>
+<assignment_statement> ::= <identifier> "=" <expression> ";"
+<input_statement> ::= "cin" ">>" <identifier> ";"
+<output_statement> ::= "cout" "<<" <expression> ";"
+<conditional_statement> ::= "if" "(" <expression> ")" <block> ["else" <block>]
+<loop_statement> ::= "while" "(" <expression> ")" <block>
+<block> ::= "{" <statement_list> "}"
+<expression> ::= <term> | <term> <operation> <expression>
+<term> ::= <factor> | <factor> <mul_op> <term>
+<factor> ::= <identifier> | <constant> | "(" <expression> ")"
+<operation> ::= <add_op> | <mul_op> | <rel_op>
+<add_op> ::= "+" | "-"
+<mul_op> ::= "*" | "/"
+<rel_op> ::= "==" | "!=" | "<" | ">" | "<=" | ">="
+<identifier> ::= <letter> {<letter> | <digit> | "_"}
+<constant> ::= <integer_constant> | <float_constant>
+<integer_constant> ::= <digit> {<digit>}
+<float_constant> ::= <digit> {<digit>} "." <digit> {<digit>}
+<letter> ::= "a" | "b" | "c" | ... | "z" | "A" | "B" | "C" | ... | "Z"
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<struct_definition> ::= "struct" <identifier> "{" <struct_field_list> "}" ";"
+<struct_field_list> ::= struct_field> | <struct_field> <struct_field_list>
+<struct_field> ::= <type> <identifier> ";"
+<type> ::= "int" | "float" | "struct" <identifier>

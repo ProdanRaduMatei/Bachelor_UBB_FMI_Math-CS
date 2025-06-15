@@ -1,0 +1,2 @@
+pkg_1
+-DCATKIN_DEVEL_PREFIX=/home/pi/noa_workspace/devel -DCMAKE_INSTALL_PREFIX=/home/pi/noa_workspace/install -G Unix Makefiles

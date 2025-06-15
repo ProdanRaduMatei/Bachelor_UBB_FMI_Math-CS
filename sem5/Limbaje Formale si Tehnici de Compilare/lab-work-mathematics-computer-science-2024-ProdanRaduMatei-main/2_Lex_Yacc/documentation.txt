@@ -1,0 +1,116 @@
+Minilanguage Documentation
+
+Provides a detailed explanation of each rule and element in the mini-language, which is a restricted form of C++.
+
+Elements of the Programming Language
+
+    1. Reserved Words:
+        int: Defines an integer data type.
+        float: Defines a floating-point data type
+        struct: Defines a user-defined data type.
+        if: Starts a conditional statement.
+        else: Provides an alternative block of code if the "if" condition is false.
+        while: Starts a loop that continues as long as the condition is true.
+        cout: Outputs data to the console.
+        cin: Inputs data from the console.
+
+    2. Operators:
+        Arithmetic: + (addition), - (substraction), * (multiplication), / (division)
+        Assignment: = (assigns a value to a variable)
+        Relational: == (equal to), != (not equal to), < (less than), > (greater than), <= (less than or equal to), >= (grater than or equal to)
+
+    3. Separators:
+        Parantheses: (, ) (used to group expressions and parameters)
+        Braces: {, } (used to define blocks of code)
+        Semicolon: ; (used to terminate statements)
+        Comma: , (used to separate itmes in a list)
+
+    4. Identifiers:
+        Must start wit h a letter (a-z, A-Z) or underscore (_)
+        Followed by letters, digits (0-9), or underscores
+
+    5. Constants:
+        Integer constants: sequence of digits (e.g., 123)
+        Floating-point constants: sequence of digits with a decimal point (e.g., 123.45)
+
+Syntax of the Programming Language using BNF Notation
+
+        1. Program Structure:
+            <program> ::= <statement_list>
+            A program consists of a list of statements.
+        
+        2. Statement List:
+            <statement_list> ::= <statement> | <statement> <statement_list>
+            A statement list can be a single statement or multiple statements.
+        
+        3. Statements:
+            <statement>::= <assignment_statement> | <input_statement> | <output_statement> | <conditional_statement> | <loop_statement>
+            A statement can be an assignment, input, output, conditional, or loop statement.
+        
+        4. Assignment Statement:
+            <assignment_statement> ::= <identifier> "=" < expression> ";"
+            Assigns the value of an expression to an identifier (variable).
+        
+        5. Input Statement:
+            <input_statement> ::= "cin" ">>" <identifier> ";"
+            Reads input from the console into an identifier (variable).
+        
+        6. Output Statement:
+            <output_statement> ::= "cout" "<<" <expression> ";"
+            Outputs the value of an expression to the console.
+        
+        7. Conditional Statement:
+            <conditional_statement> ::= "if" "(" <expression> ")" <block> ["else" <block>]
+            Executes a block of code if the expression is true; optionally executes another block if the expression is false.
+        
+        8. Loop Statement:
+            <loop_statement> ::= "while" "(" <expression> ")" <block>
+            Repeatedly executes a block of code as long as the expression is true.
+
+        9. Block:
+            <block> ::= "{" <statement_list> "}"
+            A block is a group of statements enclosed in braces.
+        
+        10. Expressions:
+            <expression> ::= <term> | <term> <add_op> <expression>
+            An expression can be a term or a term followed by an addition or substraction operator and another expression.
+        
+        11. Terms:
+            <term> ::= <factor> | <factor> <mul_op> <term>
+            A term can be a factor or a factor followed by a multiplication or division operator and another term.
+        
+        12. Factors:
+            <factor> ::= <identifier> | <constant> | "(" <expression> ")"
+            A factor can be an identifier, a constant, or an expression enclosed in parantheses.
+        
+        13. Addition and Substraction Operators:
+            <add_op> ::= "+" | "-"
+            Defines addition and substraction operators.
+        
+        14. Multiplication and Division Operators:
+            <mul_op> ::= "*" | "/"
+            Defines multiplication and division operators.
+        
+        15. Identifiers:
+            <identifier> ::= <letter> {<letter> | <digit> | "_"}
+            An identifier starts with a letter or underscore and is followed by letters, digits or underscores.
+        
+        16. Constants:
+            <constant> ::= <integer_constant> | <float_constant>
+            A constant can be an integer or a floating-point number.
+        
+        17. Integer Constants:
+            <integer_constant> ::= <digit> {<digit>}
+            An integer constant is a sequence of digits.
+        
+        18. Floating-Point Constants:
+            <float_constant> ::= <digit> {<digit>} "." <digit> {<digit>}
+            A floating-point constant is a sequence of digits with a decimal point.
+        
+        19. Letters:
+            <letter> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z"
+            Defines the letters of the alphabet.
+        
+        20. Digits:
+            <digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+            Defines the digits 0 through 9.

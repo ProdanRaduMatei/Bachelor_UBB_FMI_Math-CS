@@ -1,0 +1,50 @@
+# Context-Free Grammar for the Minilanguage
+
+# Program Structure
+program -> "start" statement_list "end"
+
+statement_list -> statement | statement statement_list
+
+statement -> assignment_statement | input_statement | output_statement | conditional_statement | loop_statement | struct_definition
+
+# Statements
+assignment_statement -> identifier "=" expression ";"
+input_statement -> "cin" ">>" identifier ";"
+output_statement -> "cout" "<<" expression ";"
+conditional_statement -> "if" "(" expression ")" block | "if" "(" expression ")" block "else" block
+loop_statement -> "while" "(" expression ")" block
+block -> "{" statement_list "}"
+
+# Expressions
+expression -> term | term operation expression
+term -> factor | factor mul_op term
+factor -> identifier | constant | "(" expression ")"
+
+operation -> add_op | mul_op | rel_op
+
+# Operators
+add_op -> "+" | "-"
+mul_op -> "*" | "/"
+rel_op -> "==" | "!=" | "<" | ">" | "<=" | ">="
+
+# Identifiers and Constants
+identifier -> letter identifier_tail
+identifier_tail -> letter | digit | "_" identifier_tail | ε
+
+constant -> integer_constant | float_constant
+integer_constant -> digit integer_tail
+integer_tail -> digit integer_tail | ε
+float_constant -> digit float_tail "." digit float_tail
+float_tail -> digit float_tail | ε
+
+# Reserved Words
+type -> "int" | "float" | "struct" identifier
+
+# Structs
+struct_definition -> "struct" identifier "{" struct_field_list "}" ";"
+struct_field_list -> struct_field | struct_field struct_field_list
+struct_field -> type identifier ";"
+
+# Letters and Digits
+letter -> "a" | "b" | "c" | ... | "z" | "A" | "B" | "C" | ... | "Z"
+digit -> "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
