@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSN Clone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1f1f1f;
+            padding: 15px 20px;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sign-in-btn {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .sign-in-btn:hover {
+            background-color: #444;
+        }
+
+        .settings-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 50%;
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .search-container {
+            position: relative;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 16px;
+        }
+
+        .nav {
+            background-color: #222;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        .container {
+            display: block;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .content-wrapper {
+            width: 100%;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            align-items: start; /* ensures cards align at the top */
+        }
+
+        .news-card {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .news-card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .news-card h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .news-card p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .news-card.wide {
+            grid-column: span 2;
+        }
+
+        .sidebar {
+            background-color: #1e1e1e;
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 4px 0;
+            border-bottom: 1px solid #444;
+            font-size: 12px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            max-height: 180px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+        }
+
+        .carousel-item h3 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .carousel-item p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .footer {
+            background-color: #1f1f1f;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer ul li {
+            margin: 0;
+        }
+
+        .footer ul li a {
+            color: #aaa;
+            text-decoration: none;
+        }
+
+        .footer ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="logo">MSN Clone</div>
+    <div class="search-bar">
+        <div class="search-container">
+            <span class="search-icon">&#128269;</span> <!-- Unicode search icon -->
+            <input type="text" placeholder="Search the web">
+        </div>
+    </div>
+    <div class="header-actions">
+        <span class="settings-icon">&#9881;</span> <!-- Unicode gear icon -->
+        <button class="sign-in-btn">Sign In</button>
+    </div>
+</div>
+<div class="nav">
+    <a href="#">Discover</a>
+    <a href="#">Sports</a>
+    <a href="#">Gaming</a>
+    <a href="#">Weather</a>
+    <a href="#">Travel</a>
+</div>
+<div class="container">
+    <div class="content-wrapper">
+        <div class="news-grid">
+        <!-- Row 1 -->
+        <div class="news-card wide">
+            <div class="news-card-content">
+                <img src="news1.jpeg" alt="News Image">
+                <h3>Yorkshire's Food Capital?</h3>
+                <p>We took part in a culinary tour through York...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="news2.jpeg" alt="News Image">
+            <h3>Romanian Elections</h3>
+            <p>Three major candidates in the race for presidency.</p>
+        </div>
+        <div class="news-card">
+            <img src="news3.jpeg" alt="News Image">
+            <h3>Best Guard Dogs</h3>
+            <p>Top 5 best guard dogs for families.</p>
+        </div>
+        <div class="news-card">
+            <img src="news4.jpeg" alt="News Image">
+            <h3>AI Changing the World</h3>
+            <p>Explore how artificial intelligence is shaping the future in various industries.</p>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="news-card">
+            <div class="sidebar">
+                <h2>Top Stories</h2>
+                <ul>
+                    <li>🔴 BBC - JFK files release: Key takeaways</li>
+                    <li>📰 Daily Mail - Trump & Ukraine nuclear deal</li>
+                </ul>
+            </div>
+        </div>
+        <div class="news-card">
+            <img src="news5.jpeg" alt="News Image">
+            <h3>Healthy Living Tips</h3>
+            <p>Experts share their best tips on living a healthy and balanced life.</p>
+        </div>
+        <div class="news-card">
+            <img src="news6.jpeg" alt="News Image">
+            <h3>SpaceX New Launch</h3>
+            <p>SpaceX prepares for its latest mission to the International Space Station.</p>
+        </div>
+        <div class="news-card">
+            <img src="news7.jpeg" alt="News Image">
+            <h3>Global Economy</h3>
+            <p>Analysis of the global economic outlook for the next quarter.</p>
+        </div>
+        <div class="news-card">
+            <img src="news8.jpeg" alt="News Image">
+            <h3>Smart Home Trends</h3>
+            <p>Top smart home gadgets to watch in 2025.</p>
+        </div>
+        <div class="news-card">
+            <img src="news9.jpeg" alt="News Image">
+            <h3>Education Reform</h3>
+            <p>Debate heats up over proposed education reforms.</p>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="news-card">
+            <img src="news10.jpeg" alt="News Image">
+            <h3>Olympic Preparations</h3>
+            <p>How cities are preparing for the next Olympic Games.</p>
+        </div>
+        <div class="news-card wide">
+            <img src="news12.jpeg" alt="News Image">
+            <h3>Electric Vehicles Boom</h3>
+            <p>Why EV sales are skyrocketing around the world.</p>
+        </div>
+        <div class="news-card">
+            <img src="news11.jpeg" alt="News Image">
+            <h3>Climate Crisis</h3>
+            <p>UN calls for urgent action on climate change.</p>
+        </div>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <ul>
+        <li>&copy; 2025 Microsoft</li>
+        <li><a href="#">Privacy Settings</a></li>
+        <li><a href="#">Privacy and Cookies</a></li>
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Advertise</a></li>
+        <li><a href="#">...</a></li>
+        <li><a href="#">Feedback</a></li>
+    </ul>
+</footer>
+
+</body>
+</html>

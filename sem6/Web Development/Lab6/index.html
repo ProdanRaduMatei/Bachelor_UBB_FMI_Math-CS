@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>jQuery Bar Chart</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                padding: 20px;
+            }
+
+            #chart-container {
+                margin-top: 30px;
+                width: 100%;
+                height: 300px;
+                border: 1px solid #ccc;
+                display: flex;
+                align-items: flex-end;
+                justify-content: space-around;
+            }
+
+            .bar {
+                width: 40px;
+                background-color: steelblue;
+                margin: 0 5px;
+                transition: height 1s;
+            }
+
+            input {
+                width: 300px;
+                padding: 5px;
+            }
+
+            button {
+                padding: 5px 15px;
+                margin-left: 10px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h2>Comma-Separated Number Chart</h2>
+        <input type="text" id="numberInput" placeholder="e.g. 25, 50, 10, 80, 45">
+        <button id="generateBtn">Generate Chart</button>
+
+        <div id="chart-container"></div>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $('#generateBtn').click(function () {
+                var input = $('#numberInput').val();
+                var numbers = input.split(',').map(function (item) {
+                    return parseInt(item.trim());
+                }).filter(function (num) {
+                    return !isNaN(num);
+                });
+
+                var max = Math.max.apply(null, numbers);
+                $('#chart-container').empty();
+
+                numbers.forEach(function (num) {
+                    var bar = $('<div class="bar"></div>');
+                    bar.height(0);
+                    $('#chart-container').append(bar);
+                    var heightPercent = (num / max) * 100;
+                    bar.animate({ height: heightPercent + '%' }, 1000);
+                });
+            });
+        </script>
+
+    </body>
+</html>

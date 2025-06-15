@@ -1,0 +1,13 @@
+body {
+    font-family: Arial, sans-serif;
+}
+#productList, #cart {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.product, .cart-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+}

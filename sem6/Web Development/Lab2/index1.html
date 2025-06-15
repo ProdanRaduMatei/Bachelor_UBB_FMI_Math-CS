@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nested Divs - All Change on Smallest Hover</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .outer,
+        .middle,
+        .inner,
+        .smallest {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .outer {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .middle {
+            width: 220px;
+            height: 220px;
+            background-color: blue;
+        }
+
+        .inner {
+            width: 140px;
+            height: 140px;
+            background-color: green;
+        }
+
+        .smallest {
+            width: 60px;
+            height: 60px;
+            background-color: yellow;
+        }
+
+        .outer:has(.smallest:hover) {
+            background-color: purple;
+        }
+
+        .outer:has(.smallest:hover) .middle {
+            background-color: orange;
+        }
+
+        .outer:has(.smallest:hover) .inner {
+            background-color: pink;
+        }
+
+        .outer:has(.smallest:hover) .smallest {
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+<div class="outer">
+    <div class="middle">
+        <div class="inner">
+            <div class="smallest"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
